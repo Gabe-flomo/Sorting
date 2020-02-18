@@ -13,35 +13,25 @@ def binary_search(arr, target):
     return -1 # array empty
     
   low = 0
-  high = len(arr)
+  high = len(arr) - 1
   middle = (low + high) // 2
   found = False
   arr.sort()
   i = 0
-  while i < 10:
+  while not found:
     i += 1
     val = arr[middle]
-    print(f"Middle: {middle} value: {val} target: {target}")
+    #print(f"Middle: {middle} value: {val} target: {target}")
      
     if val == target:
       found = True
       return val
     elif val > target:
-      print("Top half")
-      low = middle + 1
-      high = len(arr[low:])
+      low = middle
       middle = (low + high) // 2
     elif val < target:
-      
-    
-
-
-
-
-  
-
-   # not found
-
+      low = middle
+      middle = (low + high) // 2
 
 # STRETCH: write a recursive implementation of Binary Search 
 def binary_search_recursive(arr, target, low, high):
